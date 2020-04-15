@@ -66,6 +66,9 @@ def openPath():
 	else:
 		s1.set('Path:')
 
+def eventOpen(event):
+	openPath()
+
 window = Tk()
 window.title("PathConvert")
 window.geometry(wsize)
@@ -81,6 +84,9 @@ txt1.grid(column = 0, row = 1, sticky=W+E+N+S, padx = p, pady = p)
 # open button
 b1 = Button(window, text = "open", command = openPath, font = (font, fsize))
 b1.grid(column = 0, row = 2, sticky=W+N, padx = p, pady = p)
+
+# <return>
+txt1.bind("<Return>", eventOpen)
 
 try:
 	c = window.clipboard_get() #get clipboard
