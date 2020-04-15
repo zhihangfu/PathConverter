@@ -57,14 +57,13 @@ def openPath():
 	p: path string
 	"""
 	win_path = convertPath(txt1.get("1.0",END))
-	print("Opening:", win_path)
+	txt1.delete('1.0', END)
+	txt1.insert(INSERT, win_path)
 	try:
 	    os.startfile(win_path)
 	except:
 	    s1.set("Invalid path, please re-enter:")
 	else:
-		txt1.delete('1.0', END)
-		txt1.insert(INSERT, win_path)
 		s1.set('Path:')
 
 window = Tk()
